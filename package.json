@@ -2,7 +2,7 @@
   "name": "calorie-front-end",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://eddisonchen.github.io/calorie-tracker-front-end/", 
+  "homepage": "http://eddisonchen.github.io/calorie-tracker-front-end/", 
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
