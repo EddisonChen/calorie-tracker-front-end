@@ -17,3 +17,6 @@ export default App;
 // determine ideal weight, BMI, maximum muscular potential
 // enter in max lifts, calculate strength score // symmetric sterngth type thing
 // look up foods in a database // restaurants and foods
+
+// find a way to deploy on gh pages
+

@@ -51,6 +51,7 @@ const BodyStats = (props) => {
     }
 
     const calculateCalories = () => {
+        convertUnits()
         setProppedBodyStats({
             "unitType": bodyStats["unitType"],
             "sex": bodyStats["sex"],
@@ -60,7 +61,6 @@ const BodyStats = (props) => {
             "activityLevel": bodyStats["activityLevel"],
             "bodyFatPercentage": bodyStats["bodyFatPercentage"]
         })
-        convertUnits()
         if (bodyStats["unitType"] !== null || bodyStats["sex"] !== null || bodyStats["age"] !== null || bodyStats["weight"] !== null || bodyStats["height"] !== null || bodyStats["activityLevel"] !== null) {
             if (bodyStats["bodyFatPercentage"] == null) {
                 let sexValue = null;
@@ -101,8 +101,8 @@ const BodyStats = (props) => {
             <div>
                 {output ? output : ''}
             </div>
-            {/* {calculatedCalories == null ? '' :<CalorieResults 
-                bodyStats = {bodyStats}
+            {/* {calculatedCalories && proppedBodyStats == null ? '' :<CalorieResults 
+                proppedBodyStats = {proppedBodyStats}
                 calculatedCalories = {calculatedCalories}
             />} */}
             <CalorieResults 
