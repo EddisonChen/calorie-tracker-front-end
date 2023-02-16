@@ -122,7 +122,7 @@ const CalorieResults = (props) => {
 
 
     return (
-        <div>
+        <div className = "calorie_Output_Display">
             <h3>
                 Your maintenance calories is {calculatedCalories} per day, or {calculatedCalories * 7} per week.
             </h3>

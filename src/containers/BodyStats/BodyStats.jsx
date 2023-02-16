@@ -7,6 +7,10 @@ const BodyStats = (props) => {
     const [calculatedCalories, setCalculatedCalories] = useState()
     const [output, setOutput] = useState()
     const [proppedBodyStats, setProppedBodyStats] = useState()
+    const [placeholderMsg, setPlaceholderMsg] = useState({
+        weight: "Weight",
+        height: "Height"
+    })
 
     const bodyStats = {
         unitType : null,
@@ -77,38 +81,43 @@ const BodyStats = (props) => {
 
     return (
         <div>
-            <div>
-                <h4>Units</h4>
+            <div className = "units_Buttons">
+                <h4>Units of Measurement</h4>
                 <input onClick={setBodyStats} type="radio" name="unitType" value="imperial"></input>Imperial
                 <input onClick={setBodyStats} type="radio" name="unitType" value="metric"></input>Metric
             </div>
-            <div>
+            <div className="sex_Buttons">
                 <h4>Sex</h4>
                 <input onClick={setBodyStats} type="radio" name="sex" value="male"></input>Male
                 <input onClick={setBodyStats} type="radio" name="sex" value="female"></input>Female
-                <input onChange={setBodyStats} type="number" name="age" placeholder="Age"></input>Age
-                <input onChange={setBodyStats} type="number" name="weight" placeholder="Weight"></input>Weight(KG/LBs)
-                <input onChange={setBodyStats} type="number" name="height" placeholder="Height"></input>Height(Inches/CM)
-                <input onChange={setBodyStats} type="number" name="bodyFatPercentage" placeholder="Body Fat Percentage (Optional)"></input>%
+            </div>
+            <div className="stats_Input">
+                <input onChange={setBodyStats} type="number" name="age" placeholder="Age"></input>
+                <input onChange={setBodyStats} type="number" name="weight" placeholder={placeholderMsg.weight}></input>
+                <input onChange={setBodyStats} type="number" name="height" placeholder={placeholderMsg.height}></input>
+                <input onChange={setBodyStats} type="number" name="bodyFatPercentage" placeholder="Body Fat % (Optional)"></input>
+            </div>
+            <div className="activity_Level">
                 <h3>Activity Level</h3>
-                    <input onClick={setBodyStats} type="radio" name="activityLevel" value="sedentary"></input>Sedentary
-                    <input onClick={setBodyStats} type="radio" name="activityLevel" value="lightly active"></input>Lightly Active
-                    <input onClick={setBodyStats} type="radio" name="activityLevel" value="moderately active"></input>Moderately Active
-                    <input onClick={setBodyStats} type="radio" name="activityLevel" value="active"></input>Active
-                    <input onClick={setBodyStats} type="radio" name="activityLevel" value="highly active"></input>Highly Active
-                <button onClick={calculateCalories}>Submit</button>
+                <div>Sedentary<input onClick={setBodyStats} type="radio" name="activityLevel" value="sedentary"></input></div>
+                <div>Lightly Active<input onClick={setBodyStats} type="radio" name="activityLevel" value="lightly active"></input></div>
+                <div>Moderately Active<input onClick={setBodyStats} type="radio" name="activityLevel" value="moderately active"></input></div>
+                <div>Active<input onClick={setBodyStats} type="radio" name="activityLevel" value="active"></input></div>
+                <div>Highly Active<input onClick={setBodyStats} type="radio" name="activityLevel" value="highly active"></input></div>
+                <button className="submit_Button" onClick={calculateCalories}>Submit</button>
             </div>
+            
             <div>
-                {output ? output : ''}
+                {output ? output : null}
             </div>
-            {/* {calculatedCalories && proppedBodyStats == null ? '' :<CalorieResults 
+            {calculatedCalories && proppedBodyStats == null ? null :<CalorieResults 
                 proppedBodyStats = {proppedBodyStats}
                 calculatedCalories = {calculatedCalories}
-            />} */}
-            <CalorieResults 
+            />}
+            {/* <CalorieResults 
                 proppedBodyStats = {proppedBodyStats}
                 calculatedCalories = {calculatedCalories}
-            />
+            /> */}
         </div>
     )
 }

@@ -1,1 +1,55 @@
+.heading {
+    text-align: center;
+}
+
+.units_Buttons {
+    text-align: center;
+}
+
+.sex_Buttons {
+    text-align: center;
+}
+
+.stats_Input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border: 2px solid black;
+}
+
+.stats_Input > input {
+    padding: 7px;
+    margin: 10px;
+    width: 15%;
+    text-align: center;
+    border: 2px solid black
+}
+
+.activity_Level {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+}
+
+.activity_Level > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 3px;
+}
+
+.submit_Button {
+    margin-top: 20px;
+    padding: 7px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.calorie_Output_Display {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
 
