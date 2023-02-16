@@ -4,7 +4,7 @@ import BodyStats from "../src/containers/BodyStats/BodyStats"
 function App() {
   return (
     <body>
-        <h1>Home</h1>
+        <h1>Maintenance Calculator</h1>
         <BodyStats/>
     </body>
   );

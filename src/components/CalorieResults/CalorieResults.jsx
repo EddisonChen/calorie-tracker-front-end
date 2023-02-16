@@ -15,26 +15,26 @@ const CalorieResults = (props) => {
         let robinson = null
         let miller = null
         if (proppedBodyStats !== undefined) {
-            if (proppedBodyStats["sex"] == "female") {
-                if (proppedBodyStats["height"]/2.54 > 60) {
-                    hamwi = Math.round(45.5 + 2.2*((proppedBodyStats["height"]/2.54) - 60))
-                    devine = Math.round(45.5 + 2.3*((proppedBodyStats["height"]/2.54) - 60))
-                    robinson = Math.round(49 + 1.7*((proppedBodyStats["height"]/2.54) - 60))
-                    miller = Math.round(53.1 + 1.36*((proppedBodyStats["height"]/2.54) - 60))
+            if (proppedBodyStats.sex == "female") {
+                if (proppedBodyStats.height/2.54 > 60) {
+                    hamwi = Math.round(45.5 + 2.2*((proppedBodyStats.height/2.54) - 60))
+                    devine = Math.round(45.5 + 2.3*((proppedBodyStats.height/2.54) - 60))
+                    robinson = Math.round(49 + 1.7*((proppedBodyStats.height/2.54) - 60))
+                    miller = Math.round(53.1 + 1.36*((proppedBodyStats.height/2.54) - 60))
                 } else {
-                    hamwi = Math.round(45.5 - 2.2*(60 - (proppedBodyStats["height"]/2.54)))
+                    hamwi = Math.round(45.5 - 2.2*(60 - (proppedBodyStats.height/2.54)))
                     devine = null
                     robinson = null
                     miller = null
                 }
-            } else if (proppedBodyStats["sex"] == "male") {
-                if (proppedBodyStats["height"]/2.54 > 60) {
-                    hamwi = Math.round(48 + 2.7*((proppedBodyStats["height"]/2.54) - 60))
-                    devine = Math.round(50 + 2.3*((proppedBodyStats["height"]/2.54) - 60))
-                    robinson = Math.round(52 + 1.9*((proppedBodyStats["height"]/2.54) - 60))
-                    miller = Math.round(56.2 + 1.41*((proppedBodyStats["height"]/2.54) - 60))
+            } else if (proppedBodyStats.sex == "male") {
+                if (proppedBodyStats.height/2.54 > 60) {
+                    hamwi = Math.round(48 + 2.7*((proppedBodyStats.height/2.54) - 60))
+                    devine = Math.round(50 + 2.3*((proppedBodyStats.height/2.54) - 60))
+                    robinson = Math.round(52 + 1.9*((proppedBodyStats.height/2.54) - 60))
+                    miller = Math.round(56.2 + 1.41*((proppedBodyStats.height/2.54) - 60))
                 } else {
-                    hamwi = Math.round(48 - 2.7*(60 - (proppedBodyStats["height"]/2.54)))
+                    hamwi = Math.round(48 - 2.7*(60 - (proppedBodyStats.height/2.54)))
                     devine = null
                     robinson = null
                     miller = null
@@ -57,7 +57,7 @@ const CalorieResults = (props) => {
         let bmi = null
         let bmiClass = null
         if (proppedBodyStats !== undefined) {
-            bmi = parseFloat(proppedBodyStats["weight"]/((proppedBodyStats["height"]/100)**2)).toFixed(2)
+            bmi = parseFloat(proppedBodyStats.weight/((proppedBodyStats.height/100)**2)).toFixed(2)
             if (bmi < 18.5) {
                 bmiClass = "underweight"
             } else if (bmi >18.5 && bmi < 24.99) {
@@ -85,7 +85,7 @@ const CalorieResults = (props) => {
     const maximumMuscularPotentialCalculator = () => {
         let maxMuscPot = null
         if (proppedBodyStats !== undefined) {
-            maxMuscPot = proppedBodyStats["height"] - 100
+            maxMuscPot = proppedBodyStats.height - 100
         }
         const message = (
             <div>
@@ -107,7 +107,7 @@ const CalorieResults = (props) => {
         const mifflin = "Your estimated daily calorie expenditure was calculated using the Mifflin-St Jeor formula, which is the most accurate formula when body fat percentage is not specified. The following table shows your estimated calorie expenditure at different activity levels."
         const katchMcArdle = "Your estimated daily calorie expenditure was calculated using the Katch-McArdle formula, which is the most accurate formula when body fat percentage is provided. The following table shows your estimated calorie expenditure at different activity levels."
         if (proppedBodyStats !== undefined) {
-            if (proppedBodyStats["bodyFatPercentage"] == null) {
+            if (proppedBodyStats.bodyFatPercentage == null) {
                 setFormulaMessage(mifflin)
             } else {
                 setFormulaMessage(katchMcArdle)

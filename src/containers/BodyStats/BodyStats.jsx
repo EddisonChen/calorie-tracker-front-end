@@ -9,13 +9,13 @@ const BodyStats = (props) => {
     const [proppedBodyStats, setProppedBodyStats] = useState()
 
     const bodyStats = {
-        "unitType" : null,
-        "sex": null,
-        "age": null,
-        "weight": null,
-        "height": null,
-        "activityLevel": null,
-        "bodyFatPercentage": null
+        unitType : null,
+        sex: null,
+        age: null,
+        weight: null,
+        height: null,
+        activityLevel: null,
+        bodyFatPercentage: null
     }
 
     const setBodyStats = (event) => {
@@ -28,47 +28,47 @@ const BodyStats = (props) => {
     }
 
     const convertUnits = () => {
-        if (bodyStats["unitType"] == "imperial") {
-            bodyStats["weight"] = bodyStats["weight"]/2.205
-            bodyStats["height"] = bodyStats["height"] * 2.54
+        if (bodyStats.unitType == "imperial") {
+            bodyStats.weight = bodyStats.weight/2.205
+            bodyStats.height = bodyStats.height * 2.54
         }
-        switch (bodyStats["activityLevel"]) {
-            case bodyStats["activityLevel"] = "sedentary":
-                bodyStats["activityLevel"] = 1.2;
+        switch (bodyStats.activityLevel) {
+            case bodyStats.activityLevel = "sedentary":
+                bodyStats.activityLevel = 1.2;
                 break;
-            case bodyStats["activityLevel"] = "lightly active":
-                bodyStats["activityLevel"] = 1.375;
+            case bodyStats.activityLevel = "lightly active":
+                bodyStats.activityLevel = 1.375;
                 break;
-            case bodyStats["activityLevel"] = "moderately active":
-                bodyStats["activityLevel"] = 1.55;
+            case bodyStats.activityLevel = "moderately active":
+                bodyStats.activityLevel = 1.55;
                 break;
-            case bodyStats["activityLevel"] = "active":
-                bodyStats["activityLevel"] = 1.725;
+            case bodyStats.activityLevel = "active":
+                bodyStats.activityLevel = 1.725;
                 break;
-            case bodyStats["activityLevel"] = "highly active":
-                bodyStats["activityLevel"] = 1.9
+            case bodyStats.activityLevel = "highly active":
+                bodyStats.activityLevel = 1.9
         }
     }
 
     const calculateCalories = () => {
         convertUnits()
         setProppedBodyStats({
-            "unitType": bodyStats["unitType"],
-            "sex": bodyStats["sex"],
-            "age": bodyStats["age"],
-            "weight": bodyStats["weight"],
-            "height": bodyStats["height"],
-            "activityLevel": bodyStats["activityLevel"],
-            "bodyFatPercentage": bodyStats["bodyFatPercentage"]
+            unitType: bodyStats.unitType,
+            sex: bodyStats.sex,
+            age: bodyStats.age,
+            weight: bodyStats.weight,
+            height: bodyStats.height,
+            activityLevel: bodyStats.activityLevel,
+            bodyFatPercentage: bodyStats.bodyFatPercentage
         })
-        if (bodyStats["unitType"] !== null || bodyStats["sex"] !== null || bodyStats["age"] !== null || bodyStats["weight"] !== null || bodyStats["height"] !== null || bodyStats["activityLevel"] !== null) {
-            if (bodyStats["bodyFatPercentage"] == null) {
+        if (bodyStats.unitType !== null || bodyStats.sex !== null || bodyStats.age !== null || bodyStats.weight !== null || bodyStats.height !== null || bodyStats.activityLevel !== null) {
+            if (bodyStats.bodyFatPercentage == null) {
                 let sexValue = null;
-                bodyStats["sex"] == "male" ? sexValue = 5 : sexValue = -151;
-                setCalculatedCalories(Math.round(bodyStats["activityLevel"] * ((10*bodyStats["weight"]) + (6.25*bodyStats["height"]) - 5*bodyStats["age"] - sexValue)))
+                bodyStats.sex == "male" ? sexValue = 5 : sexValue = -151;
+                setCalculatedCalories(Math.round(bodyStats.activityLevel * ((10*bodyStats.weight) + (6.25*bodyStats.height) - 5*bodyStats.age - sexValue)))
             } else {
-                const leanBodyMass = (1 - bodyStats["bodyFatPercentage"]/100) * bodyStats["weight"]
-                setCalculatedCalories(Math.round(bodyStats["activityLevel"] * (370 + (21.6 * leanBodyMass))))
+                const leanBodyMass = (1 - bodyStats.bodyFatPercentage/100) * bodyStats.weight
+                setCalculatedCalories(Math.round(bodyStats.activityLevel * (370 + (21.6 * leanBodyMass))))
             }
         } else {
             setOutput("Hey, fill out all the forms")
